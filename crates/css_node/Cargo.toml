@@ -11,7 +11,6 @@ version = "0.1.0"
 [lib]
 bench = false
 crate-type = ["cdylib"]
-path = "Source/lib.rs"
 
 [features]
 
@@ -21,17 +20,17 @@ napi-build = { version = "1" }
 [dependencies]
 anyhow = "1"
 napi = { version = "2", default-features = false, features = [
-	"napi3",
-	"serde-json",
+  "napi3",
+  "serde-json",
 ] }
 napi-derive = { version = "2", default-features = false, features = [
-	"type-def",
+  "type-def",
 ] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 swc_common = { version = "0.33.12", features = [
-	"sourcemap",
-	"diagnostic-serde",
+  "sourcemap",
+  "diagnostic-serde",
 ] }
 swc_atoms = "0.6.5"
 swc_css_ast = "0.140.14"
