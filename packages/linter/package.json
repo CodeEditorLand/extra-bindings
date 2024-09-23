@@ -1,7 +1,7 @@
 {
 	"description": "Super-fast linter based on SWC",
 	"devDependencies": {
-		"@napi-rs/cli": "^2.16.1"
+		"@napi-rs/cli": "2.18.4"
 	},
 	"main": "./binding.js",
 	"name": "@swc/linter",
