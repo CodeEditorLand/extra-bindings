@@ -1,17 +1,17 @@
 {
-	"cpu": [
-		"x64"
-	],
+	"name": "@swc/html-linux-x64-musl",
 	"description": "Super-fast alternative for babel",
+	"main": "html.linux-x64-musl.node",
 	"files": [
 		"html.linux-x64-musl.node"
 	],
-	"libc": [
-		"musl"
-	],
-	"main": "html.linux-x64-musl.node",
-	"name": "@swc/html-linux-x64-musl",
 	"os": [
 		"linux"
+	],
+	"cpu": [
+		"x64"
+	],
+	"libc": [
+		"musl"
 	]
 }
