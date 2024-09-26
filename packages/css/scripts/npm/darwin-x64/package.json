@@ -1,14 +1,14 @@
 {
-	"name": "@swc/css-darwin-x64",
+	"cpu": [
+		"x64"
+	],
 	"description": "Super-fast alternative for babel",
-	"main": "css.darwin-x64.node",
 	"files": [
 		"css.darwin-x64.node"
 	],
+	"main": "css.darwin-x64.node",
+	"name": "@swc/css-darwin-x64",
 	"os": [
 		"darwin"
-	],
-	"cpu": [
-		"x64"
 	]
 }

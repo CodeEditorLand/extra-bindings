@@ -1,14 +1,14 @@
 {
-	"name": "@swc/css-win32-x64-msvc",
+	"cpu": [
+		"x64"
+	],
 	"description": "Super-fast alternative for babel",
-	"main": "css.win32-x64-msvc.node",
 	"files": [
 		"css.win32-x64-msvc.node"
 	],
+	"main": "css.win32-x64-msvc.node",
+	"name": "@swc/css-win32-x64-msvc",
 	"os": [
 		"win32"
-	],
-	"cpu": [
-		"x64"
 	]
 }

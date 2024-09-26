@@ -1,21 +1,10 @@
 {
-	"name": "@swc/linter",
 	"description": "Super-fast linter based on SWC",
-	"main": "./binding.js",
-	"types": "./binding.d.ts",
-	"scripts": {
-		"artifacts": "napi artifacts --dist scripts/npm",
-		"build": "tsc -d && napi build --platform --cargo-name linter_node --js ./binding.js --dts binding.d.ts -p linter_node --release --cargo-cwd ../..",
-		"build:dev": "tsc -d && napi build --platform --cargo-name linter_node --js ./binding.js --dts binding.d.ts -p linter_node --cargo-cwd ../..",
-		"build:ts": "tsc -d",
-		"build:wasm": "npm-run-all \"pack -- build ./crates/wasm --scope swc {1} -t {2} \" --",
-		"pack": "wasm-pack",
-		"prepublishOnly": "tsc -d && napi prepublish -p scripts/npm --tagstyle npm",
-		"version": "napi version -p scripts/npm"
-	},
 	"devDependencies": {
 		"@napi-rs/cli": "2.18.4"
 	},
+	"main": "./binding.js",
+	"name": "@swc/linter",
 	"napi": {
 		"name": "lint",
 		"triples": {
@@ -32,5 +21,16 @@
 			],
 			"defaults": true
 		}
-	}
+	},
+	"scripts": {
+		"artifacts": "napi artifacts --dist scripts/npm",
+		"build": "tsc -d && napi build --platform --cargo-name linter_node --js ./binding.js --dts binding.d.ts -p linter_node --release --cargo-cwd ../..",
+		"build:dev": "tsc -d && napi build --platform --cargo-name linter_node --js ./binding.js --dts binding.d.ts -p linter_node --cargo-cwd ../..",
+		"build:ts": "tsc -d",
+		"build:wasm": "npm-run-all \"pack -- build ./crates/wasm --scope swc {1} -t {2} \" --",
+		"pack": "wasm-pack",
+		"prepublishOnly": "tsc -d && napi prepublish -p scripts/npm --tagstyle npm",
+		"version": "napi version -p scripts/npm"
+	},
+	"types": "./binding.d.ts"
 }

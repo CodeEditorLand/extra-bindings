@@ -1,14 +1,14 @@
 {
-	"name": "@swc/css-android-arm-eabi",
+	"cpu": [
+		"arm"
+	],
 	"description": "Super-fast alternative for babel",
-	"main": "css.android-arm-eabi.node",
 	"files": [
 		"css.android-arm-eabi.node"
 	],
+	"main": "css.android-arm-eabi.node",
+	"name": "@swc/css-android-arm-eabi",
 	"os": [
 		"android"
-	],
-	"cpu": [
-		"arm"
 	]
 }
