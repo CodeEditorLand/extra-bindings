@@ -1,14 +1,14 @@
 {
-	"name": "@swc/html-linux-arm-gnueabihf",
+	"cpu": [
+		"arm"
+	],
 	"description": "Super-fast alternative for babel",
-	"main": "html.linux-arm-gnueabihf.node",
 	"files": [
 		"html.linux-arm-gnueabihf.node"
 	],
+	"main": "html.linux-arm-gnueabihf.node",
+	"name": "@swc/html-linux-arm-gnueabihf",
 	"os": [
 		"linux"
-	],
-	"cpu": [
-		"arm"
 	]
 }
