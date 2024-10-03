@@ -1,61 +1,36 @@
 {
-  "name": "@swc/linter",
-  "packageManager": "yarn@3.2.3",
-  "version": "0.0.29",
-  "description": "Super-fast linter based on SWC",
-  "homepage": "https://swc.rs",
-  "main": "./binding.js",
-  "types": "./binding.d.ts",
-  "author": "Mathis Møller",
-  "license": "Apache-2.0",
-  "keywords": [
-    "swc",
-    "lint"
-  ],
-  "engines": {
-    "node": ">=14"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/swc-project/swc.git"
-  },
-  "bugs": {
-    "url": "https://github.com/swc-project/swc/issues"
-  },
-  "napi": {
-    "name": "lint",
-    "triples": {
-      "defaults": true,
-      "additional": [
-        "x86_64-unknown-linux-musl",
-        "i686-pc-windows-msvc",
-        "aarch64-unknown-linux-gnu",
-        "armv7-unknown-linux-gnueabihf",
-        "aarch64-apple-darwin",
-        "aarch64-linux-android",
-        "aarch64-unknown-linux-musl",
-        "aarch64-pc-windows-msvc",
-        "armv7-linux-androideabi"
-      ]
-    }
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
-  },
-  "scripts": {
-    "artifacts": "napi artifacts --dist scripts/npm",
-    "prepublishOnly": "tsc -d && napi prepublish -p scripts/npm --tagstyle npm",
-    "pack": "wasm-pack",
-    "build:ts": "tsc -d",
-    "build:wasm": "npm-run-all \"pack -- build ./crates/wasm --scope swc {1} -t {2} \" --",
-    "build": "tsc -d && napi build --platform --cargo-name linter_node --js ./binding.js --dts binding.d.ts -p linter_node --release --cargo-cwd ../..",
-    "build:dev": "tsc -d && napi build --platform --cargo-name linter_node --js ./binding.js --dts binding.d.ts -p linter_node --cargo-cwd ../..",
-    "test": "echo 'done!'",
-    "version": "napi version -p scripts/npm"
-  },
-  "devDependencies": {
-    "@napi-rs/cli": "^2.16.1",
-    "typescript": "^5.1.6"
-  }
+	"description": "Super-fast linter based on SWC",
+	"devDependencies": {
+		"@napi-rs/cli": "2.18.4"
+	},
+	"main": "./binding.js",
+	"name": "@swc/linter",
+	"napi": {
+		"name": "lint",
+		"triples": {
+			"additional": [
+				"x86_64-unknown-linux-musl",
+				"i686-pc-windows-msvc",
+				"aarch64-unknown-linux-gnu",
+				"armv7-unknown-linux-gnueabihf",
+				"aarch64-apple-darwin",
+				"aarch64-linux-android",
+				"aarch64-unknown-linux-musl",
+				"aarch64-pc-windows-msvc",
+				"armv7-linux-androideabi"
+			],
+			"defaults": true
+		}
+	},
+	"scripts": {
+		"artifacts": "napi artifacts --dist scripts/npm",
+		"build": "tsc -d && napi build --platform --cargo-name linter_node --js ./binding.js --dts binding.d.ts -p linter_node --release --cargo-cwd ../..",
+		"build:dev": "tsc -d && napi build --platform --cargo-name linter_node --js ./binding.js --dts binding.d.ts -p linter_node --cargo-cwd ../..",
+		"build:ts": "tsc -d",
+		"build:wasm": "npm-run-all \"pack -- build ./crates/wasm --scope swc {1} -t {2} \" --",
+		"pack": "wasm-pack",
+		"prepublishOnly": "tsc -d && napi prepublish -p scripts/npm --tagstyle npm",
+		"version": "napi version -p scripts/npm"
+	},
+	"types": "./binding.d.ts"
 }
