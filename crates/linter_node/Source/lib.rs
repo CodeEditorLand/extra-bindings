@@ -25,9 +25,7 @@ use crate::util::try_with;
 
 #[napi::module_init]
 fn init() {
-	if cfg!(debug_assertions)
-		|| env::var("SWC_DEBUG").unwrap_or_default() == "1"
-	{
+	if cfg!(debug_assertions) || env::var("SWC_DEBUG").unwrap_or_default() == "1" {
 		set_hook(Box::new(|panic_info| {
 			let backtrace = Backtrace::force_capture();
 			println!("Panic: {:?}\nBacktrace: {:?}", panic_info, backtrace);
@@ -81,11 +79,7 @@ impl Task for LintTask {
 		lint_inner(&self.code, opts).convert_err()
 	}
 
-	fn resolve(
-		&mut self,
-		_env:napi::Env,
-		output:Self::Output,
-	) -> napi::Result<Self::JsValue> {
+	fn resolve(&mut self, _env:napi::Env, output:Self::Output) -> napi::Result<Self::JsValue> {
 		Ok(output)
 	}
 }
@@ -124,15 +118,10 @@ fn lint_inner(code:&str, opts:LintOptions) -> anyhow::Result<TransformOutput> {
 
 		let unresolved_mark = Mark::new();
 		let top_level_mark = Mark::new();
-		let unresolved_ctxt =
-			SyntaxContext::empty().apply_mark(unresolved_mark);
+		let unresolved_ctxt = SyntaxContext::empty().apply_mark(unresolved_mark);
 		let top_level_ctxt = SyntaxContext::empty().apply_mark(top_level_mark);
 
-		module.visit_mut_with(&mut resolver(
-			unresolved_mark,
-			top_level_mark,
-			false,
-		));
+		module.visit_mut_with(&mut resolver(unresolved_mark, top_level_mark, false));
 
 		let mut rules = swc_ecma_lints::rules::all(LintParams {
 			program:&Program::Module(module.clone()),
@@ -154,11 +143,7 @@ fn lint_inner(code:&str, opts:LintOptions) -> anyhow::Result<TransformOutput> {
 
 #[allow(unused)]
 #[napi]
-fn lint(
-	code:Buffer,
-	opts:Buffer,
-	signal:Option<AbortSignal>,
-) -> AsyncTask<LintTask> {
+fn lint(code:Buffer, opts:Buffer, signal:Option<AbortSignal>) -> AsyncTask<LintTask> {
 	let code = String::from_utf8_lossy(code.as_ref()).to_string();
 	let options = String::from_utf8_lossy(opts.as_ref()).to_string();
 
