@@ -9,11 +9,11 @@ const css = `
 `;
 
 async function main() {
-	console.time("🚀 minify Time");
-	const output = await swc.minify(Buffer.from(css), {});
-	console.timeEnd("🚀 minify Time");
-	console.log(output.code.length + " bytes");
-	console.log(output.code, "\n");
+  console.time("🚀 minify Time");
+  const output = await swc.minify(Buffer.from(css), {});
+  console.timeEnd("🚀 minify Time");
+  console.log(output.code.length + " bytes");
+  console.log(output.code, "\n");
 }
 main();
 
