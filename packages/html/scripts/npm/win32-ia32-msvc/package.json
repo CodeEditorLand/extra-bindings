@@ -1,14 +1,14 @@
 {
-	"cpu": [
-		"ia32"
-	],
+	"name": "@swc/html-win32-ia32-msvc",
 	"description": "Super-fast alternative for babel",
+	"main": "html.win32-ia32-msvc.node",
 	"files": [
 		"html.win32-ia32-msvc.node"
 	],
-	"main": "html.win32-ia32-msvc.node",
-	"name": "@swc/html-win32-ia32-msvc",
 	"os": [
 		"win32"
+	],
+	"cpu": [
+		"ia32"
 	]
 }
