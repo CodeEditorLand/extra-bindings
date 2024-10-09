@@ -1,7 +1,7 @@
 {
 	"description": "Super-fast alternative for posthtml",
 	"devDependencies": {
-		"@napi-rs/cli": "^2.18.4"
+		"@napi-rs/cli": "2.18.4"
 	},
 	"main": "./index.js",
 	"name": "@swc/html",
