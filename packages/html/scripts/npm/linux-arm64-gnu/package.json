@@ -1,17 +1,17 @@
 {
-	"cpu": [
-		"arm64"
-	],
+	"name": "@swc/html-linux-arm64-gnu",
 	"description": "Super-fast alternative for babel",
+	"main": "html.linux-arm64-gnu.node",
 	"files": [
 		"html.linux-arm64-gnu.node"
 	],
-	"libc": [
-		"glibc"
-	],
-	"main": "html.linux-arm64-gnu.node",
-	"name": "@swc/html-linux-arm64-gnu",
 	"os": [
 		"linux"
+	],
+	"cpu": [
+		"arm64"
+	],
+	"libc": [
+		"glibc"
 	]
 }

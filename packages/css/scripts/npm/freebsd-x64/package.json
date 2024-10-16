@@ -1,14 +1,14 @@
 {
-	"cpu": [
-		"x64"
-	],
+	"name": "@swc/css-freebsd-x64",
 	"description": "Super-fast alternative for babel",
+	"main": "css.freebsd-x64.node",
 	"files": [
 		"css.freebsd-x64.node"
 	],
-	"main": "css.freebsd-x64.node",
-	"name": "@swc/css-freebsd-x64",
 	"os": [
 		"freebsd"
+	],
+	"cpu": [
+		"x64"
 	]
 }
