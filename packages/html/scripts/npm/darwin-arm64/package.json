@@ -1,14 +1,14 @@
 {
-	"name": "@swc/html-darwin-arm64",
+	"cpu": [
+		"arm64"
+	],
 	"description": "Super-fast alternative for babel",
-	"main": "html.darwin-arm64.node",
 	"files": [
 		"html.darwin-arm64.node"
 	],
+	"main": "html.darwin-arm64.node",
+	"name": "@swc/html-darwin-arm64",
 	"os": [
 		"darwin"
-	],
-	"cpu": [
-		"arm64"
 	]
 }
