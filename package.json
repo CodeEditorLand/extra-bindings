@@ -1,7 +1,7 @@
 {
 	"devDependencies": {
 		"@taplo/cli": "0.7.0",
-		"@types/node": "22.7.6",
+		"@types/node": "22.7.7",
 		"cross-env": "7.0.3",
 		"cspell": "8.15.4",
 		"lint-staged": "15.2.10",
