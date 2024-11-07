@@ -30,14 +30,14 @@ napi-derive = { version = "2", default-features = false, features = [
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 swc_atoms = "2.0.0"
-swc_common = { version = "3.0.0", features = ["diagnostic-serde"] }
-swc_ecma_ast = "3.0.0"
-swc_ecma_lints = "4.0.0"
-swc_ecma_minifier = "4.0.0"
-swc_ecma_parser = "4.0.0"
-swc_ecma_transforms_base = "4.0.0"
-swc_ecma_visit = "3.0.0"
-swc_error_reporters = "4.0.0"
+swc_common = { version = "4.0.0", features = ["diagnostic-serde"] }
+swc_ecma_ast = "4.0.1"
+swc_ecma_lints = "5.0.0"
+swc_ecma_minifier = "5.0.0"
+swc_ecma_parser = "5.0.0"
+swc_ecma_transforms_base = "5.0.0"
+swc_ecma_visit = "4.0.0"
+swc_error_reporters = "5.0.0"
 swc_nodejs_common = "1.0.0"
 tracing = { version = "0.1.40", features = ["release_max_level_info"] }
 tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
