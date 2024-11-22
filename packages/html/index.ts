@@ -4,8 +4,10 @@ export type MinifierType = "js-module" | "js-script" | "json" | "css" | "html";
 
 export type Options = {
 	filename?: string;
+
 	iframeSrcdoc?: boolean;
 	scriptingEnabled?: boolean;
+
 	forceSetHtml5Doctype?: boolean;
 	collapseWhitespaces?:
 		| "none"
@@ -38,6 +40,7 @@ export type Options = {
 export type FragmentOptions = Options & {
 	mode?: "no-quirks" | "limited-quirks" | "quirks";
 	context_element?: binding.Element;
+
 	form_element?: binding.Element;
 };
 
