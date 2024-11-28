@@ -29,13 +29,17 @@ export function minify(
 	opts: Buffer,
 	signal?: AbortSignal | undefined | null,
 ): Promise<TransformOutput>;
+
 export function minifyFragment(
 	code: Buffer,
 	opts: Buffer,
 	signal?: AbortSignal | undefined | null,
 ): Promise<TransformOutput>;
+
 export function minifySync(code: Buffer, opts: Buffer): TransformOutput;
+
 export function minifyFragmentSync(code: Buffer, opts: Buffer): TransformOutput;
+
 export interface Diagnostic {
 	level: string;
 	message: string;
@@ -62,10 +66,13 @@ export function minify(
 	opts: Buffer,
 	signal?: AbortSignal | undefined | null,
 ): Promise<TransformOutput>;
+
 export function minifyFragment(
 	code: Buffer,
 	opts: Buffer,
 	signal?: AbortSignal | undefined | null,
 ): Promise<TransformOutput>;
+
 export function minifySync(code: Buffer, opts: Buffer): TransformOutput;
+
 export function minifyFragmentSync(code: Buffer, opts: Buffer): TransformOutput;

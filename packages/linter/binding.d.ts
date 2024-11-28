@@ -16,4 +16,5 @@ export function lint(
 	opts: Buffer,
 	signal?: AbortSignal | undefined | null,
 ): Promise<TransformOutput>;
+
 export function lintSync(code: Buffer, opts: Buffer): TransformOutput;

@@ -22,10 +22,13 @@ export function minify(
 	opts: Buffer,
 	signal?: AbortSignal | undefined | null,
 ): Promise<TransformOutput>;
+
 export function minifySync(code: Buffer, opts: Buffer): TransformOutput;
+
 export function transform(
 	code: Buffer,
 	opts: Buffer,
 	signal?: AbortSignal | undefined | null,
 ): Promise<TransformOutput>;
+
 export function transformSync(code: Buffer, opts: Buffer): TransformOutput;
