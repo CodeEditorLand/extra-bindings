@@ -5,23 +5,32 @@
 
 export interface Diagnostic {
 	level: string;
+
 	message: string;
+
 	span: any;
 }
 export interface TransformOutput {
 	code: string;
+
 	errors?: Array<Diagnostic>;
 }
 export interface Attribute {
 	namespace?: string;
+
 	prefix?: string;
+
 	name: string;
+
 	value?: string;
 }
 export interface Element {
 	tagName: string;
+
 	namespace: string;
+
 	attributes: Array<Attribute>;
+
 	isSelfClosing: boolean;
 }
 export function minify(
@@ -42,23 +51,32 @@ export function minifyFragmentSync(code: Buffer, opts: Buffer): TransformOutput;
 
 export interface Diagnostic {
 	level: string;
+
 	message: string;
+
 	span: any;
 }
 export interface TransformOutput {
 	code: string;
+
 	errors?: Array<Diagnostic>;
 }
 export interface Attribute {
 	namespace?: string;
+
 	prefix?: string;
+
 	name: string;
+
 	value?: string;
 }
 export interface Element {
 	tagName: string;
+
 	namespace: string;
+
 	attributes: Array<Attribute>;
+
 	isSelfClosing: boolean;
 }
 export function minify(

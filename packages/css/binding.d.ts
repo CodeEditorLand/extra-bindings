@@ -5,12 +5,16 @@
 
 export interface Diagnostic {
 	level: string;
+
 	message: string;
+
 	span: any;
 }
 export interface TransformOutput {
 	code: string;
+
 	map?: string;
+
 	errors?: Array<Diagnostic>;
 	/** JSON string. */
 	deps?: string;

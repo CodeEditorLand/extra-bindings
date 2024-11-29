@@ -6,9 +6,11 @@ export type Options = {
 	filename?: string;
 
 	iframeSrcdoc?: boolean;
+
 	scriptingEnabled?: boolean;
 
 	forceSetHtml5Doctype?: boolean;
+
 	collapseWhitespaces?:
 		| "none"
 		| "all"
@@ -16,29 +18,47 @@ export type Options = {
 		| "conservative"
 		| "advanced-conservative"
 		| "only-metadata";
+
 	removeEmptyMetadataElements?: boolean;
+
 	removeComments?: boolean;
+
 	preserveComments: string[];
+
 	minifyConditionalComments?: boolean;
+
 	removeEmptyAttributes?: boolean;
+
 	removeRedundantAttributes?: boolean;
+
 	collapseBooleanAttributes?: boolean;
+
 	normalizeAttributes?: boolean;
+
 	minifyJson?: boolean | { pretty?: boolean };
 	// TODO improve me after typing `@swc/css`
 	minifyJs?: boolean | { parser?: any; minifier?: any; codegen?: any };
+
 	minifyCss?: boolean | { parser?: any; minifier?: any; codegen?: any };
+
 	minifyAdditionalScriptsContent?: [string, MinifierType][];
+
 	minifyAdditionalAttributes?: [string, MinifierType][];
+
 	sortSpaceSeparatedAttributeValues?: boolean;
+
 	sortAttributes?: boolean;
+
 	tagOmission?: boolean;
+
 	selfClosingVoidElements?: boolean;
+
 	quotes?: boolean;
 };
 
 export type FragmentOptions = Options & {
 	mode?: "no-quirks" | "limited-quirks" | "quirks";
+
 	context_element?: binding.Element;
 
 	form_element?: binding.Element;

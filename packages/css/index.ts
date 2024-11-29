@@ -2,6 +2,7 @@ import * as binding from "./binding";
 
 export type MinifyOptions = {
 	filename?: string;
+
 	sourceMap?: boolean;
 };
 

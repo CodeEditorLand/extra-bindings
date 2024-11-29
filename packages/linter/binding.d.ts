@@ -5,7 +5,9 @@
 
 export interface Diagnostic {
 	level: string;
+
 	message: string;
+
 	span: any;
 }
 export interface TransformOutput {
