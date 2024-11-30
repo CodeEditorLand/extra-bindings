@@ -43,6 +43,7 @@ fn init() {
 	if cfg!(debug_assertions) || env::var("SWC_DEBUG").unwrap_or_default() == "1" {
 		set_hook(Box::new(|panic_info| {
 			let backtrace = Backtrace::force_capture();
+
 			println!("Panic: {:?}\nBacktrace: {:?}", panic_info, backtrace);
 		}));
 	}
@@ -196,6 +197,7 @@ const fn default_collapse_whitespaces() -> CollapseWhitespaces { CollapseWhitesp
 #[napi]
 impl Task for MinifyTask {
 	type JsValue = TransformOutput;
+
 	type Output = TransformOutput;
 
 	fn compute(&mut self) -> napi::Result<Self::Output> {
@@ -276,6 +278,7 @@ fn minify_inner(
 			let fm = cm.new_source_file(filename, code.into());
 
 			let scripting_enabled = opts.scripting_enabled;
+
 			let mut errors = vec![];
 
 			let (mut document_or_document_fragment, context_element) = if is_fragment {
@@ -293,14 +296,17 @@ fn minify_inner(
 						}
 					},
 				};
+
 				let mode = match opts.mode {
 					Some(mode) => mode,
 					_ => DocumentMode::NoQuirks,
 				};
+
 				let form_element = match opts.form_element {
 					Some(form_element) => Some(create_element(form_element)?),
 					_ => None,
 				};
+
 				let document_fragment = parse_file_as_document_fragment(
 					&fm,
 					&context_element,
@@ -421,6 +427,7 @@ fn minify_inner(
 						None,
 						BasicHtmlWriterConfig { ..Default::default() },
 					);
+
 					let mut gen = CodeGenerator::new(
 						&mut wr,
 						CodegenConfig {
@@ -455,6 +462,7 @@ fn minify_inner(
 #[napi]
 fn minify(code:Buffer, opts:Buffer, signal:Option<AbortSignal>) -> AsyncTask<MinifyTask> {
 	let code = String::from_utf8_lossy(code.as_ref()).to_string();
+
 	let options = String::from_utf8_lossy(opts.as_ref()).to_string();
 
 	let task = MinifyTask { code, options, is_fragment:false };
@@ -466,6 +474,7 @@ fn minify(code:Buffer, opts:Buffer, signal:Option<AbortSignal>) -> AsyncTask<Min
 #[napi]
 fn minify_fragment(code:Buffer, opts:Buffer, signal:Option<AbortSignal>) -> AsyncTask<MinifyTask> {
 	let code = String::from_utf8_lossy(code.as_ref()).to_string();
+
 	let options = String::from_utf8_lossy(opts.as_ref()).to_string();
 
 	let task = MinifyTask { code, options, is_fragment:true };
@@ -477,6 +486,7 @@ fn minify_fragment(code:Buffer, opts:Buffer, signal:Option<AbortSignal>) -> Asyn
 #[napi]
 pub fn minify_sync(code:Buffer, opts:Buffer) -> napi::Result<TransformOutput> {
 	let code = String::from_utf8_lossy(code.as_ref());
+
 	let options = get_deserialized(opts)?;
 
 	minify_inner(&code, options, false).convert_err()
@@ -486,6 +496,7 @@ pub fn minify_sync(code:Buffer, opts:Buffer) -> napi::Result<TransformOutput> {
 #[napi]
 pub fn minify_fragment_sync(code:Buffer, opts:Buffer) -> napi::Result<TransformOutput> {
 	let code = String::from_utf8_lossy(code.as_ref());
+
 	let options = get_deserialized(opts)?;
 
 	minify_inner(&code, options, true).convert_err()

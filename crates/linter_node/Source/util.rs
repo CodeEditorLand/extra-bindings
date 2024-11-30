@@ -6,6 +6,7 @@ pub fn try_with<F, Ret>(op:F) -> Result<Ret, Error>
 where
 	F: FnOnce(&Lrc<SourceMap>, &Handler) -> Result<Ret, Error>, {
 	let cm = Lrc::new(SourceMap::new(FilePathMapping::empty()));
+
 	try_with_handler(
 		cm.clone(),
 		HandlerOpts { skip_filename:false, ..Default::default() },

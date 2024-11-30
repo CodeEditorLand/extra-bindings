@@ -38,6 +38,7 @@ fn init() {
 	if cfg!(debug_assertions) || env::var("SWC_DEBUG").unwrap_or_default() == "1" {
 		set_hook(Box::new(|panic_info| {
 			let backtrace = Backtrace::force_capture();
+
 			println!("Panic: {:?}\nBacktrace: {:?}", panic_info, backtrace);
 		}));
 	}
@@ -197,16 +198,22 @@ impl CssModulesConfig {
 							)
 						},
 					};
+
 					res.push(segment);
+
 					idx += end_idx + 1;
+
 					s = &s[end_idx + 1..];
 				} else {
 					bail!("Unclosed brackets at {} in CSS Modules pattern: {}", idx, self.pattern)
 				}
 			} else {
 				let end_idx = s.find('[').unwrap_or(s.len());
+
 				res.push(CssClassNameSegment::Literal(s[0..end_idx].into()));
+
 				idx += end_idx;
+
 				s = &s[end_idx..];
 			}
 		}
@@ -218,6 +225,7 @@ impl CssModulesConfig {
 #[napi]
 impl Task for TransformTask {
 	type JsValue = TransformOutput;
+
 	type Output = TransformOutput;
 
 	fn compute(&mut self) -> napi::Result<Self::Output> {
@@ -236,6 +244,7 @@ impl Task for TransformTask {
 #[napi]
 impl Task for MinifyTask {
 	type JsValue = TransformOutput;
+
 	type Output = TransformOutput;
 
 	fn compute(&mut self) -> napi::Result<Self::Output> {
@@ -262,6 +271,7 @@ fn minify_inner(code:&str, opts:MinifyOptions) -> anyhow::Result<TransformOutput
 			let fm = cm.new_source_file(filename, code.into());
 
 			let mut errors = vec![];
+
 			let ss = swc_css_parser::parse_file::<swc_css_ast::Stylesheet>(
 				&fm,
 				None,
@@ -310,6 +320,7 @@ fn minify_inner(code:&str, opts:MinifyOptions) -> anyhow::Result<TransformOutput
 			swc_css_minifier::minify(&mut ss, Default::default());
 
 			let mut src_map = vec![];
+
 			let code = {
 				let mut buf = String::new();
 				{
@@ -322,6 +333,7 @@ fn minify_inner(code:&str, opts:MinifyOptions) -> anyhow::Result<TransformOutput
 							linefeed:LineFeed::LF,
 						},
 					);
+
 					let mut gen = CodeGenerator::new(wr, CodegenConfig { minify:true });
 
 					gen.emit(&ss).context("failed to emit")?;
@@ -332,8 +344,11 @@ fn minify_inner(code:&str, opts:MinifyOptions) -> anyhow::Result<TransformOutput
 
 			let map = if opts.source_map {
 				let map = cm.build_source_map(&src_map);
+
 				let mut buf = vec![];
+
 				map.to_writer(&mut buf).context("failed to generate sourcemap")?;
+
 				Some(String::from_utf8(buf).context("the generated source map is not utf8")?)
 			} else {
 				None
@@ -360,6 +375,7 @@ fn transform_inner(code:&str, opts:TransformOptions) -> anyhow::Result<Transform
 		let fm = cm.new_source_file(filename, code.into());
 
 		let mut errors = vec![];
+
 		let ss = swc_css_parser::parse_file::<swc_css_ast::Stylesheet>(
 			&fm,
 			None,
@@ -426,6 +442,7 @@ fn transform_inner(code:&str, opts:TransformOptions) -> anyhow::Result<Transform
 						.context("failed to parse the pattern for CSS Modules")?,
 				},
 			);
+
 			let map:HashMap<_, _> = result
 				.renamed
 				.into_iter()
@@ -450,6 +467,7 @@ fn transform_inner(code:&str, opts:TransformOptions) -> anyhow::Result<Transform
 					)
 				})
 				.collect();
+
 			Some(
 				serde_json::to_string(&map)
 					.context("failed to serialize the mapping for CSS Modules")?,
@@ -464,6 +482,7 @@ fn transform_inner(code:&str, opts:TransformOptions) -> anyhow::Result<Transform
 		}));
 
 		let mut src_map = vec![];
+
 		let code = {
 			let mut buf = String::new();
 			{
@@ -480,6 +499,7 @@ fn transform_inner(code:&str, opts:TransformOptions) -> anyhow::Result<Transform
 						BasicCssWriterConfig::default()
 					},
 				);
+
 				let mut gen = CodeGenerator::new(wr, CodegenConfig { minify:opts.minify });
 
 				gen.emit(&ss).context("failed to emit")?;
@@ -490,8 +510,11 @@ fn transform_inner(code:&str, opts:TransformOptions) -> anyhow::Result<Transform
 
 		let map = if opts.source_map {
 			let map = cm.build_source_map(&src_map);
+
 			let mut buf = vec![];
+
 			map.to_writer(&mut buf).context("failed to generate sourcemap")?;
+
 			Some(String::from_utf8(buf).context("the generated source map is not utf8")?)
 		} else {
 			None
@@ -511,6 +534,7 @@ fn transform_inner(code:&str, opts:TransformOptions) -> anyhow::Result<Transform
 #[napi]
 fn minify(code:Buffer, opts:Buffer, signal:Option<AbortSignal>) -> AsyncTask<MinifyTask> {
 	let code = String::from_utf8_lossy(code.as_ref()).to_string();
+
 	let options = String::from_utf8_lossy(opts.as_ref()).to_string();
 
 	let task = MinifyTask { code, options };
@@ -522,6 +546,7 @@ fn minify(code:Buffer, opts:Buffer, signal:Option<AbortSignal>) -> AsyncTask<Min
 #[napi]
 pub fn minify_sync(code:Buffer, opts:Buffer) -> napi::Result<TransformOutput> {
 	let code = String::from_utf8_lossy(code.as_ref());
+
 	let opts = get_deserialized(opts)?;
 
 	minify_inner(&code, opts).convert_err()
@@ -531,6 +556,7 @@ pub fn minify_sync(code:Buffer, opts:Buffer) -> napi::Result<TransformOutput> {
 #[napi]
 fn transform(code:Buffer, opts:Buffer, signal:Option<AbortSignal>) -> AsyncTask<TransformTask> {
 	let code = String::from_utf8_lossy(code.as_ref()).to_string();
+
 	let options = String::from_utf8_lossy(opts.as_ref()).to_string();
 
 	let task = TransformTask { code, options };
@@ -542,6 +568,7 @@ fn transform(code:Buffer, opts:Buffer, signal:Option<AbortSignal>) -> AsyncTask<
 #[napi]
 pub fn transform_sync(code:Buffer, opts:Buffer) -> napi::Result<TransformOutput> {
 	let code = String::from_utf8_lossy(code.as_ref());
+
 	let opts = get_deserialized(opts)?;
 
 	transform_inner(&code, opts).convert_err()

@@ -40,6 +40,7 @@ pub struct CssUrl {
 impl Visit for Analyzer {
 	fn visit_import_prelude(&mut self, n:&ImportPrelude) {
 		n.layer_name.visit_with(self);
+
 		n.import_conditions.visit_with(self);
 
 		let url = normalize_import_href(&n.href);
@@ -88,6 +89,7 @@ where
 	N: Spanned,
 	for<'a> CodeGenerator<BasicCssWriter<'a, &'a mut String>>: Emit<N>, {
 	let mut buf = String::new();
+
 	let wr = BasicCssWriter::new(
 		&mut buf,
 		None,
@@ -97,6 +99,7 @@ where
 			linefeed:LineFeed::LF,
 		},
 	);
+
 	let mut gen = CodeGenerator::new(wr, CodegenConfig { minify:true });
 
 	gen.emit(&n).expect("failed to print node for dependency analysis");

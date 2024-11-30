@@ -28,6 +28,7 @@ fn init() {
 	if cfg!(debug_assertions) || env::var("SWC_DEBUG").unwrap_or_default() == "1" {
 		set_hook(Box::new(|panic_info| {
 			let backtrace = Backtrace::force_capture();
+
 			println!("Panic: {:?}\nBacktrace: {:?}", panic_info, backtrace);
 		}));
 	}
@@ -69,6 +70,7 @@ pub struct LintOptions {
 #[napi]
 impl Task for LintTask {
 	type JsValue = TransformOutput;
+
 	type Output = TransformOutput;
 
 	fn compute(&mut self) -> napi::Result<Self::Output> {
@@ -117,8 +119,11 @@ fn lint_inner(code:&str, opts:LintOptions) -> anyhow::Result<TransformOutput> {
 		};
 
 		let unresolved_mark = Mark::new();
+
 		let top_level_mark = Mark::new();
+
 		let unresolved_ctxt = SyntaxContext::empty().apply_mark(unresolved_mark);
+
 		let top_level_ctxt = SyntaxContext::empty().apply_mark(top_level_mark);
 
 		module.visit_mut_with(&mut resolver(unresolved_mark, top_level_mark, false));
@@ -145,6 +150,7 @@ fn lint_inner(code:&str, opts:LintOptions) -> anyhow::Result<TransformOutput> {
 #[napi]
 fn lint(code:Buffer, opts:Buffer, signal:Option<AbortSignal>) -> AsyncTask<LintTask> {
 	let code = String::from_utf8_lossy(code.as_ref()).to_string();
+
 	let options = String::from_utf8_lossy(opts.as_ref()).to_string();
 
 	let task = LintTask { code, options };
@@ -156,6 +162,7 @@ fn lint(code:Buffer, opts:Buffer, signal:Option<AbortSignal>) -> AsyncTask<LintT
 #[napi]
 pub fn lint_sync(code:Buffer, opts:Buffer) -> napi::Result<TransformOutput> {
 	let code = String::from_utf8_lossy(code.as_ref());
+
 	let opts = get_deserialized(opts)?;
 
 	lint_inner(&code, opts).convert_err()
