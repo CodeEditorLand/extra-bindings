@@ -33,9 +33,6 @@
 	},
 	"main": "index.js",
 	"name": "@swc/bindings",
-	"scripts": {
-		"prepare": "husky install"
-	},
 	"workspaces": [
 		"packages/*"
 	]
