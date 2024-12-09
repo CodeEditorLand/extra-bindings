@@ -2,12 +2,14 @@
 	"cpu": [
 		"arm64"
 	],
+	"dependencies": {},
 	"description": "Super-fast alternative for babel",
+	"devDependencies": {},
 	"files": [
 		"css.android-arm64.node"
 	],
 	"main": "css.android-arm64.node",
-	"name": "@swc/css-android-arm64",
+	"name": "@codeeditorland/css-android-arm64",
 	"os": [
 		"android"
 	]

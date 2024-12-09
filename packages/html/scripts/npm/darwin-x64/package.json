@@ -2,12 +2,14 @@
 	"cpu": [
 		"x64"
 	],
+	"dependencies": {},
 	"description": "Super-fast alternative for babel",
+	"devDependencies": {},
 	"files": [
 		"html.darwin-x64.node"
 	],
 	"main": "html.darwin-x64.node",
-	"name": "@swc/html-darwin-x64",
+	"name": "@codeeditorland/html-darwin-x64",
 	"os": [
 		"darwin"
 	]

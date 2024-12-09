@@ -2,7 +2,9 @@
 	"cpu": [
 		"arm64"
 	],
+	"dependencies": {},
 	"description": "Super-fast alternative for babel",
+	"devDependencies": {},
 	"files": [
 		"css.linux-arm64-gnu.node"
 	],
@@ -10,7 +12,7 @@
 		"glibc"
 	],
 	"main": "css.linux-arm64-gnu.node",
-	"name": "@swc/css-linux-arm64-gnu",
+	"name": "@codeeditorland/css-linux-arm64-gnu",
 	"os": [
 		"linux"
 	]

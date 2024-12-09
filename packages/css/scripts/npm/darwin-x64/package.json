@@ -2,12 +2,14 @@
 	"cpu": [
 		"x64"
 	],
+	"dependencies": {},
 	"description": "Super-fast alternative for babel",
+	"devDependencies": {},
 	"files": [
 		"css.darwin-x64.node"
 	],
 	"main": "css.darwin-x64.node",
-	"name": "@swc/css-darwin-x64",
+	"name": "@codeeditorland/css-darwin-x64",
 	"os": [
 		"darwin"
 	]

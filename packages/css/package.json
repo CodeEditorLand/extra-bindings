@@ -1,10 +1,11 @@
 {
+	"dependencies": {},
 	"description": "Super-fast alternative for postcss",
 	"devDependencies": {
 		"@napi-rs/cli": "2.18.4"
 	},
 	"main": "./index.js",
-	"name": "@swc/css",
+	"name": "@codeeditorland/css",
 	"napi": {
 		"name": "css",
 		"triples": {

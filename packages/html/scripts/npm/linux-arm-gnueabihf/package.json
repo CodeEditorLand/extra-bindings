@@ -2,12 +2,14 @@
 	"cpu": [
 		"arm"
 	],
+	"dependencies": {},
 	"description": "Super-fast alternative for babel",
+	"devDependencies": {},
 	"files": [
 		"html.linux-arm-gnueabihf.node"
 	],
 	"main": "html.linux-arm-gnueabihf.node",
-	"name": "@swc/html-linux-arm-gnueabihf",
+	"name": "@codeeditorland/html-linux-arm-gnueabihf",
 	"os": [
 		"linux"
 	]

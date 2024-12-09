@@ -2,12 +2,14 @@
 	"cpu": [
 		"arm64"
 	],
+	"dependencies": {},
 	"description": "Super-fast alternative for babel",
+	"devDependencies": {},
 	"files": [
 		"html.win32-arm64-msvc.node"
 	],
 	"main": "html.win32-arm64-msvc.node",
-	"name": "@swc/html-win32-arm64-msvc",
+	"name": "@codeeditorland/html-win32-arm64-msvc",
 	"os": [
 		"win32"
 	]

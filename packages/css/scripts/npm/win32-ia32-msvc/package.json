@@ -2,12 +2,14 @@
 	"cpu": [
 		"ia32"
 	],
+	"dependencies": {},
 	"description": "Super-fast alternative for babel",
+	"devDependencies": {},
 	"files": [
 		"css.win32-ia32-msvc.node"
 	],
 	"main": "css.win32-ia32-msvc.node",
-	"name": "@swc/css-win32-ia32-msvc",
+	"name": "@codeeditorland/css-win32-ia32-msvc",
 	"os": [
 		"win32"
 	]
