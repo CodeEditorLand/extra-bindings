@@ -1,19 +1,19 @@
 {
-	"cpu": [
-		"x64"
-	],
-	"dependencies": {},
+	"name": "@codeeditorland/css-linux-x64-gnu",
 	"description": "Super-fast alternative for babel",
-	"devDependencies": {},
+	"main": "css.linux-x64-gnu.node",
 	"files": [
 		"css.linux-x64-gnu.node"
 	],
-	"libc": [
-		"glibc"
-	],
-	"main": "css.linux-x64-gnu.node",
-	"name": "@codeeditorland/css-linux-x64-gnu",
+	"dependencies": {},
+	"devDependencies": {},
 	"os": [
 		"linux"
+	],
+	"cpu": [
+		"x64"
+	],
+	"libc": [
+		"glibc"
 	]
 }

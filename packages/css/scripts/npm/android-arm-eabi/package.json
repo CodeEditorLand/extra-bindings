@@ -1,16 +1,16 @@
 {
-	"cpu": [
-		"arm"
-	],
-	"dependencies": {},
+	"name": "@codeeditorland/css-android-arm-eabi",
 	"description": "Super-fast alternative for babel",
-	"devDependencies": {},
+	"main": "css.android-arm-eabi.node",
 	"files": [
 		"css.android-arm-eabi.node"
 	],
-	"main": "css.android-arm-eabi.node",
-	"name": "@codeeditorland/css-android-arm-eabi",
+	"dependencies": {},
+	"devDependencies": {},
 	"os": [
 		"android"
+	],
+	"cpu": [
+		"arm"
 	]
 }

@@ -1,16 +1,16 @@
 {
-	"cpu": [
-		"x64"
-	],
-	"dependencies": {},
+	"name": "@codeeditorland/css-darwin-x64",
 	"description": "Super-fast alternative for babel",
-	"devDependencies": {},
+	"main": "css.darwin-x64.node",
 	"files": [
 		"css.darwin-x64.node"
 	],
-	"main": "css.darwin-x64.node",
-	"name": "@codeeditorland/css-darwin-x64",
+	"dependencies": {},
+	"devDependencies": {},
 	"os": [
 		"darwin"
+	],
+	"cpu": [
+		"x64"
 	]
 }

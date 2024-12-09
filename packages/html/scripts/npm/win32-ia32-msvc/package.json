@@ -1,16 +1,16 @@
 {
-	"cpu": [
-		"ia32"
-	],
-	"dependencies": {},
+	"name": "@codeeditorland/html-win32-ia32-msvc",
 	"description": "Super-fast alternative for babel",
-	"devDependencies": {},
+	"main": "html.win32-ia32-msvc.node",
 	"files": [
 		"html.win32-ia32-msvc.node"
 	],
-	"main": "html.win32-ia32-msvc.node",
-	"name": "@codeeditorland/html-win32-ia32-msvc",
+	"dependencies": {},
+	"devDependencies": {},
 	"os": [
 		"win32"
+	],
+	"cpu": [
+		"ia32"
 	]
 }

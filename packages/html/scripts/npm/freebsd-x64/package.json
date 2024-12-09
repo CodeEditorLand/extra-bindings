@@ -1,16 +1,16 @@
 {
-	"cpu": [
-		"x64"
-	],
-	"dependencies": {},
+	"name": "@codeeditorland/html-freebsd-x64",
 	"description": "Super-fast alternative for babel",
-	"devDependencies": {},
+	"main": "html.freebsd-x64.node",
 	"files": [
 		"html.freebsd-x64.node"
 	],
-	"main": "html.freebsd-x64.node",
-	"name": "@codeeditorland/html-freebsd-x64",
+	"dependencies": {},
+	"devDependencies": {},
 	"os": [
 		"freebsd"
+	],
+	"cpu": [
+		"x64"
 	]
 }

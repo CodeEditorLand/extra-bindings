@@ -1,19 +1,19 @@
 {
-	"cpu": [
-		"arm64"
-	],
-	"dependencies": {},
+	"name": "@codeeditorland/css-linux-arm64-gnu",
 	"description": "Super-fast alternative for babel",
-	"devDependencies": {},
+	"main": "css.linux-arm64-gnu.node",
 	"files": [
 		"css.linux-arm64-gnu.node"
 	],
-	"libc": [
-		"glibc"
-	],
-	"main": "css.linux-arm64-gnu.node",
-	"name": "@codeeditorland/css-linux-arm64-gnu",
+	"dependencies": {},
+	"devDependencies": {},
 	"os": [
 		"linux"
+	],
+	"cpu": [
+		"arm64"
+	],
+	"libc": [
+		"glibc"
 	]
 }

@@ -1,16 +1,16 @@
 {
-	"cpu": [
-		"x64"
-	],
-	"dependencies": {},
+	"name": "@codeeditorland/html-darwin-x64",
 	"description": "Super-fast alternative for babel",
-	"devDependencies": {},
+	"main": "html.darwin-x64.node",
 	"files": [
 		"html.darwin-x64.node"
 	],
-	"main": "html.darwin-x64.node",
-	"name": "@codeeditorland/html-darwin-x64",
+	"dependencies": {},
+	"devDependencies": {},
 	"os": [
 		"darwin"
+	],
+	"cpu": [
+		"x64"
 	]
 }

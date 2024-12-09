@@ -1,11 +1,21 @@
 {
-	"dependencies": {},
+	"name": "@codeeditorland/css",
 	"description": "Super-fast alternative for postcss",
+	"main": "./index.js",
+	"scripts": {
+		"artifacts": "napi artifacts --dist scripts/npm",
+		"build": "tsc -d && napi build --platform --cargo-name css_node --js ./binding.js --dts binding.d.ts -p css_node --release --cargo-cwd ../..",
+		"build:dev": "tsc -d && napi build --platform --cargo-name css_node --js ./binding.js --dts binding.d.ts -p css_node --cargo-cwd ../..",
+		"build:ts": "tsc -d",
+		"build:wasm": "npm-run-all \"pack -- build ./crates/wasm --scope swc {1} -t {2} \" --",
+		"pack": "wasm-pack",
+		"prepublishOnly": "tsc -d && napi prepublish -p scripts/npm --tagstyle npm",
+		"version": "napi version -p scripts/npm"
+	},
+	"dependencies": {},
 	"devDependencies": {
 		"@napi-rs/cli": "2.18.4"
 	},
-	"main": "./index.js",
-	"name": "@codeeditorland/css",
 	"napi": {
 		"name": "css",
 		"triples": {
@@ -22,15 +32,5 @@
 			],
 			"defaults": true
 		}
-	},
-	"scripts": {
-		"artifacts": "napi artifacts --dist scripts/npm",
-		"build": "tsc -d && napi build --platform --cargo-name css_node --js ./binding.js --dts binding.d.ts -p css_node --release --cargo-cwd ../..",
-		"build:dev": "tsc -d && napi build --platform --cargo-name css_node --js ./binding.js --dts binding.d.ts -p css_node --cargo-cwd ../..",
-		"build:ts": "tsc -d",
-		"build:wasm": "npm-run-all \"pack -- build ./crates/wasm --scope swc {1} -t {2} \" --",
-		"pack": "wasm-pack",
-		"prepublishOnly": "tsc -d && napi prepublish -p scripts/npm --tagstyle npm",
-		"version": "napi version -p scripts/npm"
 	}
 }

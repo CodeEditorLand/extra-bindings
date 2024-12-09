@@ -1,16 +1,16 @@
 {
-	"cpu": [
-		"x64"
-	],
-	"dependencies": {},
+	"name": "@codeeditorland/html-win32-x64-msvc",
 	"description": "Super-fast alternative for babel",
-	"devDependencies": {},
+	"main": "html.win32-x64-msvc.node",
 	"files": [
 		"html.win32-x64-msvc.node"
 	],
-	"main": "html.win32-x64-msvc.node",
-	"name": "@codeeditorland/html-win32-x64-msvc",
+	"dependencies": {},
+	"devDependencies": {},
 	"os": [
 		"win32"
+	],
+	"cpu": [
+		"x64"
 	]
 }
