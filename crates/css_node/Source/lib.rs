@@ -10,23 +10,23 @@ use std::{
 	sync::Arc,
 };
 
-use anyhow::{bail, Context};
-use napi::{bindgen_prelude::*, Task};
+use anyhow::{Context, bail};
+use napi::{Task, bindgen_prelude::*};
 use serde::{Deserialize, Serialize};
 use swc_atoms::JsWord;
 use swc_common::FileName;
 use swc_css_codegen::{
-	writer::basic::{BasicCssWriter, BasicCssWriterConfig, IndentType, LineFeed},
 	CodeGenerator,
 	CodegenConfig,
 	Emit,
+	writer::basic::{BasicCssWriter, BasicCssWriterConfig, IndentType, LineFeed},
 };
 use swc_css_compat::{
 	compiler::{Compiler, Config},
 	feature::Features,
 };
 use swc_css_visit::{VisitMutWith, VisitWith};
-use swc_nodejs_common::{deserialize_json, get_deserialized, MapErr};
+use swc_nodejs_common::{MapErr, deserialize_json, get_deserialized};
 
 use crate::util::try_with;
 
@@ -225,7 +225,6 @@ impl CssModulesConfig {
 #[napi]
 impl Task for TransformTask {
 	type JsValue = TransformOutput;
-
 	type Output = TransformOutput;
 
 	fn compute(&mut self) -> napi::Result<Self::Output> {
@@ -244,7 +243,6 @@ impl Task for TransformTask {
 #[napi]
 impl Task for MinifyTask {
 	type JsValue = TransformOutput;
-
 	type Output = TransformOutput;
 
 	fn compute(&mut self) -> napi::Result<Self::Output> {

@@ -3,10 +3,10 @@ use swc_atoms::JsWord;
 use swc_common::Spanned;
 use swc_css_ast::{ImportHref, ImportPrelude, Url, UrlValue};
 use swc_css_codegen::{
-	writer::basic::{BasicCssWriter, BasicCssWriterConfig, IndentType, LineFeed},
 	CodeGenerator,
 	CodegenConfig,
 	Emit,
+	writer::basic::{BasicCssWriter, BasicCssWriterConfig, IndentType, LineFeed},
 };
 use swc_css_visit::{Visit, VisitWith};
 

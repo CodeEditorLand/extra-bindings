@@ -5,19 +5,19 @@ mod util;
 
 use std::{backtrace::Backtrace, env, panic::set_hook};
 
-use anyhow::{bail, Context};
-use napi::{bindgen_prelude::*, Task};
+use anyhow::{Context, bail};
+use napi::{Task, bindgen_prelude::*};
 use serde::{Deserialize, Serialize};
 use swc_atoms::js_word;
 use swc_cached::regex::CachedRegex;
-use swc_common::{FileName, DUMMY_SP};
+use swc_common::{DUMMY_SP, FileName};
 use swc_html::{
 	ast::{DocumentMode, Namespace},
 	codegen::{
-		writer::basic::{BasicHtmlWriter, BasicHtmlWriterConfig},
 		CodeGenerator,
 		CodegenConfig,
 		Emit,
+		writer::basic::{BasicHtmlWriter, BasicHtmlWriterConfig},
 	},
 	parser::{parse_file_as_document, parse_file_as_document_fragment},
 };
@@ -34,7 +34,7 @@ use swc_html_minifier::{
 		RemoveRedundantAttributes,
 	},
 };
-use swc_nodejs_common::{deserialize_json, get_deserialized, MapErr};
+use swc_nodejs_common::{MapErr, deserialize_json, get_deserialized};
 
 use crate::util::try_with;
 
@@ -197,7 +197,6 @@ const fn default_collapse_whitespaces() -> CollapseWhitespaces { CollapseWhitesp
 #[napi]
 impl Task for MinifyTask {
 	type JsValue = TransformOutput;
-
 	type Output = TransformOutput;
 
 	fn compute(&mut self) -> napi::Result<Self::Output> {
