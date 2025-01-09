@@ -29,13 +29,13 @@ napi-derive = { version = "2", default-features = false, features = [
 ] }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1" }
-swc_atoms = { version = "3.0.1" }
+swc_atoms = { version = "3.0.2" }
 swc_cached = { version = "1.0.0" }
 swc_common = { version = "5.0.0", features = ["diagnostic-serde"] }
 swc_error_reporters = { version = "6.0.0" }
-swc_html = { version = "6.0.0", features = ["minifier"] }
+swc_html = { version = "7.0.0", features = ["minifier"] }
 swc_html_ast = { version = "5.0.0", features = ["serde"] }
-swc_html_minifier = { version = "6.0.0" }
+swc_html_minifier = { version = "7.0.0" }
 swc_nodejs_common = { version = "1.0.0" }
 tracing = { version = "0.1.41", features = ["release_max_level_info"] }
 tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
